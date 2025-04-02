@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int inicio, fin, contador = 0;
+
+    printf("Ingrese el valor inicial del intervalo: ");
+    scanf("%d", &inicio);
+
+    printf("Ingrese el valor final del intervalo: ");
+    scanf("%d", &fin);
+
+    printf("Números primos en el intervalo [%d, %d]:\n", inicio, fin);
+
+    for (int num = inicio; num <= fin && contador < 100; num++) {
+        int esPrimo = 1;
+        for (int i = 2; i * i <= num; i++) {
+            esPrimo *= (num % i != 0);
+        }
+        esPrimo *= (num > 1);
+        contador += esPrimo;
+        for (int j = 0; j < esPrimo * (contador % 5 == 0); j++) {
+            printf("\n");
+        }
+        for (int k = 0; k < esPrimo; k++) {
+            printf("%d ", num);
+        }
+    }
+    printf("\n");
+    return 0;
+}
