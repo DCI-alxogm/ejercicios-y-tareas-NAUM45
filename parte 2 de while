@@ -1,0 +1,26 @@
+#include <stdio.h>
+ 
+int main() { 
+float x_inicial, x_final, incremento;
+ 
+// Pedir valores al usuario
+printf("Ingrese el valor inicial de X: ");
+scanf("%f", &x_inicial);
+ 
+printf("Ingrese el valor final de X: ");
+scanf("%f", &x_final);
+ 
+printf("Ingrese el valor del incremento: ");
+scanf("%f", &incremento);
+ 
+
+printf("\nValores de X y X^2:\n");
+float x = x_inicial;
+do {
+    printf("X = %.2f, X^2 = %.2f\n", x, x * x);
+    x += incremento;
+} while ((incremento > 0) ? (x <= x_final) : (x >= x_final));
+ 
+return 0;
+ 
+}
