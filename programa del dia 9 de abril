@@ -1,0 +1,18 @@
+#include <stdio.h>
+ 
+int main() {
+    int i, N = 10;
+    float celsius[N], kelvin[N];
+  for (i = 0; i < N; i++) 
+  {
+        printf("Ingresa la temperatura en Celsius #%d: ", i + 1);
+        scanf("%f", &celsius[i]);
+    }
+   for (i = 0; i < N; i++)
+    {
+        kelvin[i] = celsius[i] + 273.15;
+        printf("%d\t%.2f °C\t%.2f K\n", i + 1, celsius[i], kelvin[i]);
+    }
+ 
+    return 0;
+}
