@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int i, j;
+    int n_filas = 3, m_columnas = 3;
+    float array_2d_1[3][3];
+    float array_2d_2[3][3];
+    float suma_array[3][3];
+
+    printf("Ingrese los valores de la primera matriz:\n");
+    for (i = 0; i < n_filas; i++) {
+        for (j = 0; j < m_columnas; j++) {
+            scanf("%f", &array_2d_1[i][j]);
+        }
+    }
+
+    printf("Ingrese los valores de la segunda matriz:\n");
+    for (i = 0; i < n_filas; i++) {
+        for (j = 0; j < m_columnas; j++) {
+            scanf("%f", &array_2d_2[i][j]);
+        }
+    }
+
+    for (i = 0; i < n_filas; i++) {
+        for (j = 0; j < m_columnas; j++) {
+            suma_array[i][j] = array_2d_1[i][j] + array_2d_2[i][j];
+        }
+    }
+
+    printf("\nPrimera matriz:\n");
+    for (i = 0; i < n_filas; i++) {
+        for (j = 0; j < m_columnas; j++) {
+            printf("%.2f\t", array_2d_1[i][j]);
+        }
+        printf("\n");
+    }
+
+    printf("\nSegunda matriz:\n");
+    for (i = 0; i < n_filas; i++) {
+        for (j = 0; j < m_columnas; j++) {
+            printf("%.2f\t", array_2d_2[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\nMatriz suma:\n");
+    for (i = 0; i < n_filas; i++) {
+        for (j = 0; j < m_columnas; j++) {
+            printf("%.2f\t", suma_array[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
