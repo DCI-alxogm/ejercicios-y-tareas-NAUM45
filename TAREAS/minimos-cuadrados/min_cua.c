@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+#define N 10
+
+int main() {
+float d[N], t[N], v[N];
+float sumat = 0, sumad = 0, sumat2 = 0, sumatd = 0;
+float a, b;
+int i;
+printf("Metodo de minimos cuadrados\n");
+printf("Introduce 10 valores de distancia y tiempo:\n");
+
+ for (i = 0; i < N; i++) {
+printf("\nDato %d:\n", i + 1);
+printf(" Distancia (m): ");
+scanf("%f", &d[i]);
+printf(" Tiempo (s): ");
+scanf("%f", &t[i]);
+
+if (t[i] <= 0) {
+printf("Tiempo invalido, se pondra 1s\n");
+t[i] = 1;
+        }
+
+sumat += t[i];
+sumad += d[i];
+sumat2 += t[i] * t[i];
+sumatd += t[i] * d[i];
+    }
+
+printf("\nVelocidades (m/s):\n");
+for (i = 0; i < N; i++) {
+v[i] = d[i] / t[i];
+printf("V%d = %.2f m/s\n", i + 1, v[i]);
+    }
+
+float den = N * sumat2 - sumat * sumat;
+
+ if (den != 0) {
+a = (N * sumatd - sumat * sumad) / den;
+b = (sumad * sumat2 - sumat * sumatd) / den;
+
+printf("\nEcuacion de ajuste:\n");
+printf("d(t) = %.4f * t ", a);
+
+if (b > 0) {
+printf("+ %.4f\n", b);
+ } else if (b < 0) {
+printf("- %.4f\n", -b);
+  } else {
+ printf("\n");
+        }
+ } else {
+printf("\nNo se puede calcular la recta (denominador cero).\n");
+    }
+
+    return 0;
+}
+
